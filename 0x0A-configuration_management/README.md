@@ -1,1 +1,1 @@
-Configuration management readme file
+Learning to use puppet configuration management
