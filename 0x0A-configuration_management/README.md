@@ -1,1 +1,1 @@
-cm
+Configuration management readme file
