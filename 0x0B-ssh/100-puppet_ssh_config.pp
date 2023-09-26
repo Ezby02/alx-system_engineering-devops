@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # puppet script that configures ssh to 'PasswordAuthentication no' & 'IdentityFile ~/.ssh/school'
 
 file_line {'Turn off passwd auth':
