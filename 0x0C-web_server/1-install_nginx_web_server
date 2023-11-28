@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
-# bash script to install nginx web server & make the following configurations:
-#   - Nginx should be listening on port 80
-#   - Return page containing "Holberton School" when queried
+#This script installs nginx
+# Install nginx
 
-apt-get update
-apt-get install -y nginx
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+# Configure nginx to listen on port 80 and serve "Hello World!" at the root
+sudo bash -c 'echo "Hello World!" > /var/www/html/index.html'
 
-sed -i 's/listen\s*80/listen 0.0.0.0:80/' /etc/nginx/sites-available/default
-
-service nginx start
-
-echo "Hello World!" > /var/www/html/index.html
-echo "Hello World!" > /etc/nginx/html/index.html
+# Restart nginx
+sudo service nginx restart
