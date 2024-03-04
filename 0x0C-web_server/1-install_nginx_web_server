@@ -1,10 +1,22 @@
 #!/usr/bin/env bash
-#This script installs nginx
-# Install nginx
+# This script installs nginx on web-01 server
+# Nginx is to be listening on port 80
+# When requesting a a page, it returns a page containing the string 'Hello World!'
 
+# Updating and installing nginx
 sudo apt-get update
 sudo apt-get -y install nginx
+
+# Starting nginx service
+sudo service nginx start
+
+# Allowing nginx on firewall
 sudo ufw allow 'Nginx HTTP'
+
+# Give the user ownership to website files for easy editing
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
+
 # Configure nginx to listen on port 80 and serve "Hello World!" at the root
 sudo bash -c 'echo "Hello World!" > /var/www/html/index.html'
 
